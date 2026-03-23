@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ma To-Do List</title>
+    <meta name="description" content="Pour bien planifier et suivre vos tâches, voici une To-DO List simple et efficace.">
+    <meta name="robots" content="noindex, nofollow"/>
+    <link rel="icon" type="image/png" href="/logotodolist.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="app-container">
+        <div class="en-tete">
+          <h1 id="list-titre">✔ To-Do List</h1>
+          <button id="btn-titre" class="btn-action" title="Modifier le titre" aria-label="Modifier le titre">📝</button>
+        </div>
+        <p id="compteur-taches"></p>
+        <button id="btn-toggle-form" class="btn-toggle">+ Ajouter une nouvelle tâche</button>
+        <form class="formulaire" id="conteneur-formulaire" autocomplete="off">
+          <div class="input-conteneur">
+            <input type="text" id="input-tache" placeholder="Que dois-tu faire ?"/>
+            <span id="erreur" class="erreur">Veuillez entrer une tâche.</span>
+          </div>
+          <select id="select-priorite">
+            <option value="" selected>--Priorité--</option>
+            <option value="Basse">Basse</option>
+            <option value="Moyenne">Moyenne</option>
+            <option value="Haute">Haute</option>
+          </select>
+          <button type="submit" id="btn-ajouter">Ajouter</button>
+        </form>
+        <div class="filtre-conteneur">
+          <select name="filtre-taches" id="select-taches" title="Filtre">
+            <option value="Toutes" selected>Toutes</option>
+            <option value="En Cours">En Cours</option>
+            <option value="Terminées">Terminées</option>
+          </select>
+        </div>
+        <ul id="liste-taches-html"></ul>
+        <button id="btn-reset" class="btn-reset">Tout effacer</button>
+      </div>
+      <dialog id="modal-confirm">
+        <div class="modal-content">
+          <p class="attention">⚠</p>
+          <p class="msg-confirm">Voulez vous vraiment effacer votre liste ?</p>
+          <div class="btn-modal">
+            <button class="btn-oui">Oui</button>
+            <button class="btn-non">Non</button>
+          </div>
+        </div>
+      </dialog>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

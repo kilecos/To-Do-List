@@ -1,0 +1,441 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Personnalisation générale de la page */
+body {
+  font-family: "Lugrasimo", cursive;
+  font-weight: bold;
+  min-height: 100vh;
+  background: linear-gradient(304deg,rgba(102, 102, 102, 1) 22%, rgba(219, 219, 219, 1) 70%, rgba(102, 102, 102, 1) 100%);
+  padding: 50px 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Personnalisation du bloc contenant notre liste de tâches */
+.app-container {
+  margin: 0 auto;
+  background: radial-gradient(circle,rgba(255, 235, 161, 1) 86%, rgba(199, 181, 129, 1) 95%);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 6px 6px 6px rgba(0,0,0,0.7);
+  width: 500px;
+}
+
+/* Personnalisation de la partie contenant le titre et le bouton pour le changer */
+.en-tete {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+/* Personnalisation du compteur de tâches lorsqu'il est présent */
+#compteur-taches {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* Personnalisation du bouton servant à faire apparaitre le formulaire d'entré de tâches */
+.btn-toggle {
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  margin-bottom: 10px;
+  background-color: transparent;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+}
+
+.btn-toggle:hover {
+  background-color: transparent;
+  color: #383838;
+}
+
+/* Personnalisation du formulaire d'entré de tâches */
+.formulaire {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  max-height: 0;
+  margin-bottom: 0;
+  padding: 0 10px;
+  overflow: hidden;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.3s ease-in-out, max-height 0.3s ease-in-out, margin-bottom 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+/* Quand le formulaire est présent */
+.active {
+  max-height: 50px;
+  overflow: visible;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  clip-path: inset(0 0 0 0);
+}
+
+select, button {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Personnalisation générale des input */
+input {
+  padding: 8px;
+  border-radius: 10px;
+  font-family: "Lugrasimo", cursive;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+}
+
+input:focus {
+  box-shadow: 0 0 1px 1px #8b4513;
+  outline: none;
+}
+
+input::placeholder {
+  color: #383838;
+}
+
+/* Personnalisation spécifique à l'input pour la saisi d'un titre */
+.en-tete input {
+  font-size: 1.3rem;
+  max-width: 70%;
+}
+
+/* Personnalisation du message d'erreur si pas d'entrée dans l'input de nom de tâche */
+.erreur {
+  display: none;
+}
+
+.msg-erreur {
+  display: block;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  color: #c82333;
+}
+
+/* Personnalisation du selecteur de priorité */
+select, ::picker(select) {
+  appearance: base-select;
+}
+
+select {
+  width: 120px;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  font-family: "Lugrasimo", cursive;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+}
+
+::picker(select) {
+  border: none;
+  border-radius: 10px;
+}
+
+option {
+  font-weight: normal;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+option:checked {
+  font-weight: bold;
+}
+
+option::checkmark {
+  display: none;
+}
+
+/* Personnalisation générale des boutons */
+button {
+  font-family: "Lugrasimo", cursive;
+  background-color: #8b4513;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #52290b;
+}
+
+/* Personnalisation spécifique au bouton de validation du formulaire d'entré de tâches */
+#btn-ajouter {
+  border-radius: 10px;
+}
+
+/* Personnalisation du sélecteur servant à filtrer les tâches de la liste à afficher */
+.filtre-conteneur {
+  display: flex;
+  justify-content: end;
+  margin: 10px 10px;
+}
+
+/* Personnalisation de la liste de tâches */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  border-bottom: 1px dotted black;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  letter-spacing: 0.5px;
+  border-left: 10px solid transparent;
+  padding-left: 15px;
+}
+
+/* Personnalisation de la bordure des éléments de la liste en fonction de leur priorité */
+li.priorite-haute {
+  border-left-color: #a0522d;
+}
+
+li.priorite-moyenne {
+  border-left-color: #cd853f;
+}
+
+li.priorite-basse {
+  border-left-color: #8fbc8f;
+}
+
+/* Règles pour empêcher un long mot ou un lien url de dépasser du conteneur */
+li span {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Personnalisation de l'apparence d'une tâche qui à été validée */
+.tache-barree span{
+  text-decoration: line-through;
+  color: #a0a0a0;
+  text-decoration-color: black;
+  text-decoration-thickness: 2px;
+  text-decoration-style: solid;
+}
+
+/* Personnalisation du conteneur des boutons d'actions sur une tâche */
+.btn-conteneur {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Personnalisation des boutons Valider et Supprimer présents à côté de chaque tâche */
+.btn-action {
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-size: 2rem;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+
+.btn-action:hover {
+  background-color: transparent;
+  transform: scale(1.2);
+}
+
+/* Personnalisation du bouton ouvrant la modal pour effacer complètement la liste de tâches */
+.btn-reset {
+  background-color: #dc3545;
+  width: 40%;
+  margin-top: 20px;
+  margin-left: 30%;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.btn-reset:hover {
+  background-color: #c82333;
+}
+
+.btn-reset:active, .btn-oui:active, .btn-non:active {
+  box-shadow: inset 0 0 10px black;
+}
+
+/* Personnalisation de la fenêtre modal de confirmation lors du clic sur le bouton reset */
+#modal-confirm {
+  margin: auto;
+  padding: 0;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+#modal-confirm:open {
+  opacity: 1;
+}
+
+@starting-style {
+  #modal-confirm:open {
+    opacity: 0;
+  }
+}
+
+#modal-confirm::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+#modal-confirm:open::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  #modal-confirm:open::backdrop {
+    opacity: 0;
+  }
+}
+
+.modal-content {
+  background: radial-gradient(circle,rgba(255, 235, 161, 1) 86%, rgba(199, 181, 129, 1) 95%);
+  width: 90vw;
+  max-width: 400px;
+  padding: 30px;
+  text-align: center;
+  border-radius: 15px;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+}
+
+.attention {
+  font-size: 3rem;
+  margin: 0;
+}
+
+/* Personnalisation des boutons de la fenêtre modal de confirmation */
+.btn-modal {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.btn-modal button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.btn-oui {
+  background-color: #dc3545;
+  transition: background-color 0.2s ease;
+}
+
+.btn-oui:hover {
+  background-color: #c82333;
+}
+
+.btn-non {
+  background-color: #28a745;
+  transition: background-color 0.2s ease;
+}
+
+.btn-non:hover {
+  background-color: #218838;
+}
+
+/* Définition des règles CSS pour affichage sur un écran de mobile */
+@media (max-width : 724px) {
+
+  body {
+    padding-top: 20px;
+  }
+
+  .app-container {
+    max-width: 300px;
+  }
+
+  .en-tete {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  #list-titre {
+    font-size: 1.7rem;
+  }
+
+  #btn-titre {
+    width: 50px;
+    margin: auto;
+    padding: 0;
+  }
+
+  #compteur-taches {
+    font-size: 1rem;
+  }
+
+  .btn-toggle {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .formulaire {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  input, select {
+    font-size: 0.8rem;
+  }
+
+  .active {
+    max-height: 200px;
+  }
+
+  #btn-ajouter {
+    width: 100%;
+  }
+
+  .msg-erreur {
+    padding: 0;
+    padding-top: 5px;
+  }
+
+  span {
+    font-size: 0.9rem;
+  }
+
+  .btn-reset {
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  select {
+    text-align: center;
+  }
+
+  .modal-content {
+    max-width: 300px;
+  }
+
+}
