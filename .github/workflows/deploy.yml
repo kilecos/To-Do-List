@@ -12,19 +12,18 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    # Cette section dit au robot d'utiliser l'environnement que tu as vu
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install & Build
-        run: |
-          npm install
-          npm run build
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Project
+        run: npm run build # Ici, Vite crée le dossier /dist avec du .js
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -32,7 +31,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          # On envoie UNIQUEMENT le dossier dist, pas tout le projet
+          path: './dist' 
 
       - name: Deploy to GitHub Pages
         id: deployment
