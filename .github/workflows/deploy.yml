@@ -2,7 +2,7 @@ name: Deploy Vite Site
 
 on:
   push:
-    branches: ["main"] # Vérifie que ta branche s'appelle bien main (et pas master)
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -12,6 +12,11 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    # Cette section dit au robot d'utiliser l'environnement que tu as vu
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,7 +32,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # C'est ici que Vite met les fichiers compilés
+          path: './dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
