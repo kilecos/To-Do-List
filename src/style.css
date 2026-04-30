@@ -12,6 +12,12 @@ body {
   padding: 50px 0;
   margin: 0;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 /* Personnalisation du bloc contenant notre liste de tâches */
@@ -356,6 +362,14 @@ li span {
 
 .btn-non:hover {
   background-color: #218838;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto;
+  width: 500px;
+  font-size: 0.8rem;
 }
 
 /* Définition des règles CSS pour affichage sur un écran de mobile */

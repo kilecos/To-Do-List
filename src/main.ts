@@ -5,6 +5,8 @@ import { ajouterTache } from "./scripts/taches";
 import { sauvegarderTaches, listeTaches } from "./scripts/storage";
 import { afficherTaches, titre, setFiltreActif } from "./scripts/ui";
 import type { NiveauPriorite, FiltreTaches } from "./scripts/types";
+// Importation de la version depuis le package.json
+import packageJson from '../package.json';
 
 // Récupération des éléments HTML et définition des constantes
 // On utilise "as HTML..." pour bien dire à TypeScript la nature de l'élément
@@ -157,3 +159,11 @@ selectTaches.addEventListener("change", () => {
   setFiltreActif(selectTaches.value as FiltreTaches);
   afficherTaches();
 });
+
+// Sélection de l'élément footer qui contient la version
+const versionElement = document.querySelector("footer p:last-child");
+
+// S'il existe, on modifie le texte de cet élément pour qu'il affiche la version depuis package.json
+if (versionElement) {
+  versionElement.textContent = `Version ${packageJson.version}`;
+}
