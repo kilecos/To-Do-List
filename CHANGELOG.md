@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [v1.0.2] - 2026-05-13
+### Modifié
+- Ajustements visuels sur mobile :
+  - Remise en ligne du titre de la liste et du bouton pour le modifier
+  - Retrait du centrage du texte et du padding sur le bouton pour ouvrir le formulaire d'ajout de tâche
+
 ## [v1.0.1] - 2026-05-13
 ### Corrigé
 - Correction du rendu visuel du Footer sur mobile

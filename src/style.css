@@ -383,20 +383,12 @@ footer {
     max-width: 300px;
   }
 
-  .en-tete {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-
   #list-titre {
     font-size: 1.7rem;
   }
 
   #btn-titre {
     width: 50px;
-    margin: auto;
     padding: 0;
   }
 
@@ -406,7 +398,7 @@ footer {
 
   .btn-toggle {
     font-size: 1rem;
-    text-align: center;
+    padding: 0;
   }
 
   .formulaire {
