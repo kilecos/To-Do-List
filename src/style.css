@@ -193,6 +193,7 @@ button:hover {
 ul {
   list-style-type: none;
   padding: 0;
+  border-top: 1px dotted black;
 }
 
 li {
