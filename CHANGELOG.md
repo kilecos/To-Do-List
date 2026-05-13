@@ -1,7 +1,11 @@
 # CHANGELOG
 
+## [v1.0.1] - 2026-05-13
+### Corrigé
+- Correction du rendu visuel du Footer sur mobile
+
 ## [v1.0.0] - 2026-04-30
-## Ajouté
+### Ajouté
 - **Gestion des tâches** : Création, édition, validation (check) et suppression individuelle.
 - **Système de priorité** : Attribution d'un niveau (Haute, Moyenne, Basse) avec code couleur dédié.
 - **Tri intelligent** : Classement automatique par priorité, puis par ordre chronologique.
