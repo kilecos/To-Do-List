@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v1.0.4] - 2026-05-13
+### Modification
+- Ajustement padding sur le body pour descendre le footer
+
 ## [v1.0.3] - 2026-05-13
 ### Modifié
 - Ajout d'une bordure au haut de la liste de tâches pour marquer une délimitation visuelle
