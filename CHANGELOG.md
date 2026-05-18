@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v1.1.1] - 2026-05-18
+### Corrigé
+- Correction fuite de mémoire sur les fonctionnalités concernant la fermeture du mode édition des tâches par clic en dehors ou validation de l'édition
+
 ## [v1.1.0] - 2026-05-18
 ### Ajouté
 - Ajout de la fonctionnalité de fermeture du formulaire d'ajout de tâche lors du clic en dehors de celui-ci

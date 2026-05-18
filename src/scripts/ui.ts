@@ -23,8 +23,21 @@ export function setFiltreActif(selectFiltre : FiltreTaches) {
   filtreActif = selectFiltre;
 }
 
+// On configure la fermture du menu édition de tâche si clic en dehors de celui ci
+function fermerEdition(e : MouseEvent) {
+  // On cible l'élément du document ayant la classe en-edition
+  const liEdition = document.querySelector(".en-edition");
+  // S'il existe et qu'il n'est pas la cible du clic
+  if (liEdition && e.target && !liEdition.contains(e.target as Node)) {
+    // On rafraichit la page et donc ferme le menu d'édition
+    afficherTaches();
+    document.removeEventListener("click", fermerEdition);
+  }
+}
+
 // Définition de la fonction d'affichage des tâches à l'écran
 export function afficherTaches() : void {
+  document.removeEventListener("click", fermerEdition)
   // On vide la liste avant de la redessiner
   listeTachesHtml.innerHTML = "";
 
@@ -152,16 +165,7 @@ function modeEdition (tache : Tache, li : HTMLElement) {
   li.innerHTML = "";
   // On ajoute une classe à l'élément li que l'on veut éditer afin de pouvoir le sélectionner exclusivement
   li.classList.add("en-edition");
-  // On configure la fermture du menu édition si clic en dehors de celui ci
-  function fermerEdition(e : MouseEvent) {
-    // On cible l'élément du document ayant la classe en-edition
-    const liEdition = document.querySelector(".en-edition");
-    // S'il existe et qu'il n'est pas la cible du clic
-    if (liEdition && e.target && !liEdition.contains(e.target as Node)) {
-      // On rafraichit la page et donc ferme le menu d'édition
-      afficherTaches();
-    }
-  }
+  
   // On ajoute au document la fonctionnalité de fermer le menu d'édition au clic en dehors de celui-ci
   document.addEventListener("click", fermerEdition);
   // On crée un input pour modification du titre de la tâche
