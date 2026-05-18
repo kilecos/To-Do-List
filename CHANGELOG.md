@@ -1,6 +1,10 @@
 # CHANGELOG
 
-## [v1.1.2]
+## [v1.1.3] - 2026-05-18
+### Modifié
+- Modification du placeholder de l'input s'affichant lors de la demande de modification du titre de la liste pour que celui-ci soit le titre actuel de la liste
+
+## [v1.1.2] - 2026-05-18
 ### Modifié
 - Implémentation d'une délégation d'évènement concernant les boutons propres à chaque tâche :
   - Centralisation des évènements de clics pour les actions de tâche (valider, supprimer, éditer) sur le conteneur de la liste
