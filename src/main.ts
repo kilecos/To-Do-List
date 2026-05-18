@@ -62,6 +62,15 @@ conteneurFormulaire.addEventListener("submit", (e) => {
   afficherTaches();
 });
 
+// Fonctionnalité de fermeture du formulaire d'ajout de tâche lors du clic en dehors de ce dernier
+document.addEventListener("click", (e : MouseEvent) => {
+  const activeForm = document.querySelector(".active");
+  if (activeForm && e.target && !conteneurFormulaire.contains(e.target as Node) && !btnToggleForm.contains(e.target as Node)) {
+    conteneurFormulaire.classList.remove("active");
+    btnToggleForm.textContent = "+ Ajouter une nouvelle tâche";
+  }
+});
+
 // Définition de la fonction d'affichage de la fenêtre modal de confirmation pour tout effacer
 btnReset.addEventListener("click", () => {
   // On ouvre une fenêtre demandant la confirmation pour éviter tout effacement accidentel

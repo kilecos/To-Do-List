@@ -163,7 +163,6 @@ function modeEdition (tache : Tache, li : HTMLElement) {
     }
   }
   // On ajoute au document la fonctionnalité de fermer le menu d'édition au clic en dehors de celui-ci
-  // On la place dans un setTimeout à 0 pour ne pas le fermer immédiatement car le bouton pour l'ouvrir ne fait pas parti de ce menu édition
   document.addEventListener("click", fermerEdition);
   // On crée un input pour modification du titre de la tâche
   const inputEdit = document.createElement("input");

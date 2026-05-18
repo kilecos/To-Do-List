@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v1.1.0] - 2026-05-18
+### Ajouté
+- Ajout de la fonctionnalité de fermeture du formulaire d'ajout de tâche lors du clic en dehors de celui-ci
+
 ## [v1.0.5] - 2026-05-18
 ### Modifié
 - Modifications et ajustement visuels du menu d'édition de tâche sur mobile
