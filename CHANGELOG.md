@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [v1.1.2]
+### Modifié
+- Implémentation d'une délégation d'évènement concernant les boutons propres à chaque tâche :
+  - Centralisation des évènements de clics pour les actions de tâche (valider, supprimer, éditer) sur le conteneur de la liste
+  - Suppression des écouteurs d'évènement individuels de la boucle de création de tâche pour améliorer les performances
+
 ## [v1.1.1] - 2026-05-18
 ### Corrigé
 - Correction fuite de mémoire sur les fonctionnalités concernant la fermeture du mode édition des tâches par clic en dehors ou validation de l'édition
