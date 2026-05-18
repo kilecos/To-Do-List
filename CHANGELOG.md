@@ -1,7 +1,11 @@
 # CHANGELOG
 
+## [v1.0.5] - 2026-05-18
+### Modifié
+- Modifications et ajustement visuels du menu d'édition de tâche sur mobile
+
 ## [v1.0.4] - 2026-05-13
-### Modification
+### Modifié
 - Ajustement padding sur le body pour descendre le footer
 
 ## [v1.0.3] - 2026-05-13
