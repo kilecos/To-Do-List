@@ -9,7 +9,7 @@ import type { Tache, NiveauPriorite } from "./types";
 export function ajouterTache(titre : string, priorite : NiveauPriorite) {
   // On crée la tâche entrée en respectant l'interface établie
   const nouvelleTache : Tache = {
-    id : Date.now(), // donne un nombre unique basé sur l'heure
+    id : crypto.randomUUID(), // donne un nombre unique basé sur l'heure
     titre,           // Le titre renseigné dans l'input
     estTerminee : false,
     priorite,        // L'option choisi dans le select du formulaire.
@@ -24,7 +24,7 @@ export function ajouterTache(titre : string, priorite : NiveauPriorite) {
 
 // Définition de la fonction pour valider et barrer une tache
 // Elle prend en paramètre l'id de la tache sélectionné par l'utilisateur ainsi qu'une fonction de rappel qui sera exécutée après mise à jour et sauvegarde.
-export function terminerTache(id : number) : void {
+export function terminerTache(id : string) : void {
   const tacheTrouvee = listeTaches.find(tache => tache.id === id);
   if (tacheTrouvee) {
     tacheTrouvee.estTerminee = true;  // Passage du paramètre estTerminee à true
@@ -34,7 +34,7 @@ export function terminerTache(id : number) : void {
 
 // Définition de la fonction pour enlever une tâche de la liste
 // Elle prend en paramètre l'id de la tache sélectionné par l'utilisateur ainsi qu'une fonction de rappel qui sera exécutée après mise à jour et sauvegarde.
-export function supprimerTache(id : number) : void {
+export function supprimerTache(id : string) : void {
   // On utilise filter pour garder toutes les tâches sauf celle qui a cet ID
   const tacheASupprimer = listeTaches.findIndex(tache => tache.id === id);    // On cherche dans notre liste la tâche dont l'id correspond à celui de la tâche selectionnée
   if (tacheASupprimer !== -1) {                 // Si cette tâche existe
@@ -45,7 +45,7 @@ export function supprimerTache(id : number) : void {
 
 // Définition de la fonction de modification d'une tâche existante
 // Elle va prendre en paramètre les modifications faites dans le menu d'édition de tâche (voir ui.ts)
-export function editerTache(id : number, titre : string, priorite : NiveauPriorite, estTerminee : boolean) : void {
+export function editerTache(id : string, titre : string, priorite : NiveauPriorite, estTerminee : boolean) : void {
   // On va chercher dans la liste de tâche celle correspondant à l'id en paramètre de la fonction
   const tacheAEditer = listeTaches.find(tache => tache.id === id);
   // Si elle existe on applique les modifications

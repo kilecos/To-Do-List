@@ -63,7 +63,7 @@ export function afficherTaches() : void {
     // Pour chaque tâche, on crée un élément <li>
     const li = document.createElement("li");
     // Ajoute data-id en tant qu'attribut HTML de l'élément
-    li.dataset.id = String(tache.id);
+    li.dataset.id = tache.id;
     // Si la tâche est terminée, on lui ajoute la classe CSS .tache-barree qui barre le texte
     if (tache.estTerminee) {
       li.classList.add("tache-barree");

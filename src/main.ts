@@ -208,7 +208,7 @@ listeTachesHtml.addEventListener("click", (e: MouseEvent) => {
   // Sécurité si la cible n'est pas dans un "li", on s'arrête
 	if (!liParent) return;
   // On récupère l'ID sous forme de nombre
-	const idTache = Number(liParent.dataset.id);
+	const idTache = liParent.dataset.id;
   // On cible précisément la tâche dans la liste dont l'ID correspond avec l'ID du parent de l'élément cliqué
 	const tacheTrouvee = listeTaches.find((tache) => tache.id === idTache);
 	

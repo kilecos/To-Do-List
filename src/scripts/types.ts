@@ -8,7 +8,7 @@ export type FiltreTaches = "Toutes" | "En Cours" | "Terminées";
 
 // Création de l'interface qui servira à créer les objets tâche
 export interface Tache {
-  readonly id : number;
+  readonly id : string;
   titre : string;
   estTerminee : boolean;
   priorite : NiveauPriorite;

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [v1.2.2] - 2026-05-19
+### Modifié
+- Modification de la génération d'ID de tâches :
+  - Changement de Date.now() à crypto.randomUUID() afin d'éviter des ID identiques si des tâches sont entrées en même temps
+  - Ajustement du type de l'ID de number à string et de son utilisation dans les fonctionnalité
+
 ## [v1.2.1] - 2026-05-19
 ### Modifié
 - Modification de la fonctionnalité de fermeture de l'input titre pour la gestion de l'évènement de clic pour amélioration de performance
