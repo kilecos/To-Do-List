@@ -1,9 +1,9 @@
 // Gestion de l'interactivité de l'application
 
 // Récupération des types, constantes, variables et fonctions dans les autres fichiers
-import { ajouterTache } from "./scripts/taches";
+import { ajouterTache, supprimerTache, terminerTache } from "./scripts/taches";
 import { sauvegarderTaches, listeTaches } from "./scripts/storage";
-import { afficherTaches, titre, setFiltreActif } from "./scripts/ui";
+import { afficherTaches, titre, setFiltreActif, modeEdition } from "./scripts/ui";
 import type { NiveauPriorite, FiltreTaches } from "./scripts/types";
 // Importation de la version depuis le package.json
 import packageJson from '../package.json';
@@ -22,6 +22,7 @@ const inputTache = document.querySelector("#input-tache") as HTMLInputElement;  
 const selectPriorite = document.querySelector("#select-priorite") as HTMLSelectElement;              // Le sélecteur de priorité de la tache que l'on veut entrer
 const erreur = document.querySelector("#erreur") as HTMLSpanElement;                                 // Un message d'erreur qui s'affichera si pas de titre de tâche
 const selectTaches = document.querySelector("#select-taches") as HTMLSelectElement;                  // Le sélecteur qui sert à filtrer les tâches pour l'affichage
+const listeTachesHtml = document.querySelector("#liste-taches-html") as HTMLUListElement;            // L'élément li qui contiendra la tache que l'on veut entrer
 
 // On initialise le selecteur du filtre à Toutes
 selectTaches.value = "Toutes";
@@ -197,3 +198,51 @@ const versionElement = document.querySelector("footer p:last-child");
 if (versionElement) {
   versionElement.textContent = `Version ${packageJson.version}`;
 }
+
+// Ecouteur d'évènement global pour gérer les interactions avec les boutons crées à chaque tâche
+listeTachesHtml.addEventListener("click", (e: MouseEvent) => {
+  // On récupère la cible exacte du clic
+	const cible = e.target as HTMLElement;
+  // On trouve l'élément "li" parent le plus proche de la cible du clic pour récupérer son ID
+	const liParent = cible.closest("li");
+  // Sécurité si la cible n'est pas dans un "li", on s'arrête
+	if (!liParent) return;
+  // On récupère l'ID sous forme de nombre
+	const idTache = Number(liParent.dataset.id);
+  // On cible précisément la tâche dans la liste dont l'ID correspond avec l'ID du parent de l'élément cliqué
+	const tacheTrouvee = listeTaches.find((tache) => tache.id === idTache);
+	
+  // Si on trouve la tâche et que la cible du clic est le bouton "✔"
+	if (tacheTrouvee && cible.classList.contains("btn-valider")) {
+    // La fonction terminerTache (voir taches.ts) prends ici en paramètres l'id de la tâche sélectionnée ainsi que la fonction afficherTaches elle même qui sera exécutée à la fin de terminerTache
+		terminerTache(tacheTrouvee.id);
+    afficherTaches();
+	}
+  // Si on trouve la tâche et que la cible du clic est le bouton "✘"
+	if (tacheTrouvee && cible.classList.contains("btn-supprimer")) {
+    // La fonction supprimerTache (voir taches.ts) prends ici en paramètres l'id de la tâche sélectionnée ainsi que la fonction afficherTaches elle même qui sera exécutée à la fin de supprimerTache
+		supprimerTache(tacheTrouvee.id);
+    afficherTaches();
+	}
+  // Si on trouve la tâche et que la cible du clic est le bouton "📝"
+	if (tacheTrouvee && cible.classList.contains("btn-editer")) {
+    // On empêche la propagation des évènements pour éviter de fermer le menu d'édition immédiatement avec la fonction fermerEdition
+		e.stopPropagation();
+    // On vérifie s'il y a déjà une tâche en mode édition lors du clic
+		if (document.querySelector(".en-edition")) {
+      // Si oui, on recrée toute la liste ce qui va fermer d'autres modes éditions éventuellement ouvert
+			afficherTaches();
+      // On va chercher le li de la tâche que l'on veut modifier dans la nouvelle liste
+      // On recupére précisément le li avec l'attribut data-id correspondant à la tâche que l'on souhaite modifier
+			const selecteur = `[data-id="${tacheTrouvee.id}"]`;
+			const nouveauLi = listeTachesHtml.querySelector(selecteur) as HTMLElement;
+      // Si on le trouve, on ouvre son mode édition
+			if (nouveauLi) {
+				modeEdition(tacheTrouvee, nouveauLi);
+			}
+		} else {
+      // S'il n'y a aucune tâche en mode édition, on l'ouvre directement sur le li sélectionné
+			modeEdition(tacheTrouvee, liParent);
+		}
+	};
+});

@@ -3,6 +3,10 @@
 ## [v1.2.1] - 2026-05-19
 ### Modifié
 - Modification de la fonctionnalité de fermeture de l'input titre pour la gestion de l'évènement de clic pour amélioration de performance
+- Modifications de l'écouteur d'évènement global pour les actions de tâche et des fonctions de tâches :
+  - Déplacement de l'écouteur d'évènement de ui.ts à main.ts
+  - Déplacement des imports des fonctions de tâches dans main.ts
+  - Suppression des fonctions callbacks dans les fonctions d'action de tâches
 
 ## [v1.2.0] - 2026-05-19
 ### Ajouté
