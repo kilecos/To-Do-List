@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v1.2.1] - 2026-05-19
+### Modifié
+- Modification de la fonctionnalité de fermeture de l'input titre pour la gestion de l'évènement de clic pour amélioration de performance
+
 ## [v1.2.0] - 2026-05-19
 ### Ajouté
 - Ajout de la fonctionnalité de fermeture de l'input de changement de titre si clic en dehors de celui-ci

@@ -132,6 +132,19 @@ btnToggleForm.addEventListener("click", () => {
   }
 });
 
+// Fonctionnalité de fermeture de l'input de changement du titre lors du clic en dehors
+function fermerEditionTitre (e : MouseEvent) {
+  // Si l'input est présent, que le clic n'est ni dans l'input ni sur le bouton pour le faire apparaitre ou valider un titre
+  if (inputTitre && e.target && !inputTitre.contains(e.target as Node) && !btnTitre.contains(e.target as Node)) {
+    // On enlève l'input pour remettre le titre
+    inputTitre.replaceWith(titre);
+    // On réinitialise l'input
+    inputTitre = null;
+    // L'input est fermé, on supprimer l'écouteur
+    document.removeEventListener("click", fermerEditionTitre);
+  }
+}
+
 // Ajout d'une fonctionnalité permettant de changer le titre de la liste
 btnTitre.addEventListener("click", () => {
   // On cherche si l'input pour entrer le titre est déjà présent
@@ -149,6 +162,8 @@ btnTitre.addEventListener("click", () => {
     titre.replaceWith(inputTitre);
     // On sélectionne tout de suite l'input
     inputTitre.focus();
+    // On active l'écouteur pour fermer l'input lors des clics à l'extérieur
+    document.addEventListener("click", fermerEditionTitre);
   } else {
     // Si oui, on récupère le texte entré dans l'input
     let nouveauTitre = inputTitre.value.trim();
@@ -163,17 +178,8 @@ btnTitre.addEventListener("click", () => {
     inputTitre = null;
     // On sauvegarde le nouveau titre
     localStorage.setItem("mon-titre", titre.textContent);
-  }
-});
-
-// Fonctionnalité de fermeture de l'input de changement du titre lors du clic en dehors
-document.addEventListener("click", (e : MouseEvent) => {
-  // Si l'input est présent, que le clic n'est ni dans l'input ni sur le bouton pour le faire apparaitre ou valider un titre
-  if (inputTitre && e.target && !inputTitre.contains(e.target as Node) && !btnTitre.contains(e.target as Node)) {
-    // On enlève l'input pour remettre le titre
-    inputTitre.replaceWith(titre);
-    // On réinitialise l'input
-    inputTitre = null;
+    // On retire l'écouteur puisque l'input est fermé
+    document.removeEventListener("click", fermerEditionTitre);
   }
 });
 
