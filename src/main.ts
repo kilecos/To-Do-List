@@ -162,6 +162,15 @@ btnTitre.addEventListener("click", () => {
   }
 });
 
+// Fonctionnalité de fermeture de l'input de changement du titre lors du clic en dehors
+document.addEventListener("click", (e : MouseEvent) => {
+  if (inputTitre && e.target && !inputTitre.contains(e.target as Node) && !btnTitre.contains(e.target as Node)) {
+    titre.textContent;
+    inputTitre.replaceWith(titre);
+    inputTitre = null;
+  }
+});
+
 // Ajout de la fonctionnalité pour filtrer les tâches à afficher à l'écran
 selectTaches.addEventListener("change", () => {
   // On exécute le fonction setFiltreActif définie dans ui.ts qui prends en paramètre la valeur de l'option choisie dans le sélecteur

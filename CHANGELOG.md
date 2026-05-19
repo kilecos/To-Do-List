@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v1.2.0] - 2026-05-19
+### Ajouté
+- Ajout de la fonctionnalité de fermeture de l'input de changement de titre si clic en dehors de celui-ci
+
 ## [v1.1.3] - 2026-05-18
 ### Modifié
 - Modification du placeholder de l'input s'affichant lors de la demande de modification du titre de la liste pour que celui-ci soit le titre actuel de la liste
