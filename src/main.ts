@@ -64,9 +64,13 @@ conteneurFormulaire.addEventListener("submit", (e) => {
 
 // Fonctionnalité de fermeture du formulaire d'ajout de tâche lors du clic en dehors de ce dernier
 document.addEventListener("click", (e : MouseEvent) => {
+  // On cible le formulaire actif
   const activeForm = document.querySelector(".active");
+  // Si le formulaire est actif, que le clic n'est pas sur ce dernier ni sur le bouton d'ouverture/fermeture du formulaire
   if (activeForm && e.target && !conteneurFormulaire.contains(e.target as Node) && !btnToggleForm.contains(e.target as Node)) {
+    // On retire la classe "active" le formulaire pour le fermer
     conteneurFormulaire.classList.remove("active");
+    // On remet le texte initial du bouton d'ouverture du formulaire
     btnToggleForm.textContent = "+ Ajouter une nouvelle tâche";
   }
 });
@@ -164,9 +168,11 @@ btnTitre.addEventListener("click", () => {
 
 // Fonctionnalité de fermeture de l'input de changement du titre lors du clic en dehors
 document.addEventListener("click", (e : MouseEvent) => {
+  // Si l'input est présent, que le clic n'est ni dans l'input ni sur le bouton pour le faire apparaitre ou valider un titre
   if (inputTitre && e.target && !inputTitre.contains(e.target as Node) && !btnTitre.contains(e.target as Node)) {
-    titre.textContent;
+    // On enlève l'input pour remettre le titre
     inputTitre.replaceWith(titre);
+    // On réinitialise l'input
     inputTitre = null;
   }
 });
