@@ -20,14 +20,14 @@
           <h1 id="list-titre">✔ To-Do List</h1>
           <button id="btn-titre" class="btn-action" title="Modifier le titre" aria-label="Modifier le titre">📝</button>
         </div>
-        <p id="compteur-taches"></p>
+        <p id="compteur-taches" aria-live="polite"></p>
         <button id="btn-toggle-form" class="btn-toggle">+ Ajouter une nouvelle tâche</button>
         <form class="formulaire" id="conteneur-formulaire" autocomplete="off">
           <div class="input-conteneur">
-            <input type="text" id="input-tache" placeholder="Que dois-tu faire ?"/>
+            <input type="text" id="input-tache" placeholder="Que dois-tu faire ?" aria-label="champs de saisie du titre de la tâche"/>
             <span id="erreur" class="erreur">Veuillez entrer une tâche.</span>
           </div>
-          <select id="select-priorite">
+          <select id="select-priorite" aria-label="menu de sélection de la priorité de la tâche">
             <option value="" selected>--Priorité--</option>
             <option value="Basse">Basse</option>
             <option value="Moyenne">Moyenne</option>
@@ -36,7 +36,7 @@
           <button type="submit" id="btn-ajouter">Ajouter</button>
         </form>
         <div class="filtre-conteneur">
-          <select name="filtre-taches" id="select-taches" title="Filtre">
+          <select name="filtre-taches" id="select-taches" aria-label="sélecteur du filtre d'affichage des tâches">
             <option value="Toutes" selected>Toutes</option>
             <option value="En Cours">En Cours</option>
             <option value="Terminées">Terminées</option>

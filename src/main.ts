@@ -152,6 +152,7 @@ btnTitre.addEventListener("click", () => {
   if (!inputTitre) {
     // Si non, on crée cet input, lui met un placeholder, lui ajoute la fonction de pouvoir valider le texte en appuyant sur entrée  
     inputTitre = document.createElement("input");
+    inputTitre.ariaLabel = "Champs de saisie du nouveau titre";
     inputTitre.placeholder = titre.textContent;
     // On configure la validation de l'input avec la touche Entrée du clavier
     inputTitre.addEventListener("keydown", (e) => {

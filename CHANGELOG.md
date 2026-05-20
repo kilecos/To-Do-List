@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [v1.3.0] - 2026-05-20
+### Ajouté
+- Ajout de fonctionnalité pour l'accessibilité :
+  - Ajout de l'attribut aria-label sur l'input de saisie du titre de tâche, le sélecteur de priorité du formulaire et le sélecteur filtre des tâches à afficher
+  - Ajout de l'attribut ariaLabel sur l'input de saisie du titre de la liste
+  - Ajout de aria-live = "polite" sur le compteur de tâches qui se met à jour dynamiquement
+
 ## [v1.2.2] - 2026-05-19
 ### Modifié
 - Modification de la génération d'ID de tâches :
