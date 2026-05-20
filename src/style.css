@@ -130,6 +130,7 @@ input::placeholder {
 }
 
 /* Personnalisation du selecteur de priorité */
+/* ::picker(select) et appearance: base-select sont disponibles uniquement sur Chrome 135+ donc leur personnalisations seront ignorées sur les autres navigateurs */
 select, ::picker(select) {
   appearance: base-select;
 }
