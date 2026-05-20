@@ -12,7 +12,6 @@ export interface Tache {
   titre : string;
   estTerminee : boolean;
   priorite : NiveauPriorite;
-  description? : string; // TODO
 };
 
 // Création de la constante afin de pouvoir trier les taches selon leur priorité
