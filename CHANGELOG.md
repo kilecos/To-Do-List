@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## [v1.4.0] - 2026-05-21
+### Ajouté
+- Ajout de la fonctionnalité d'importer et d'exporter les listes de tâches sur ordinateur :
+  - Ajout d'un bouton sur l'application pour ouvrir une fenêtre modale porposant d'importer ou d'exporter une liste
+  - Possibilité d'importer un fichier .json depuis l'ordinateur contenant une liste de tâches précédemment exportée
+  - Sécurité sur l'import de fichier contrôlant le format du fichier ainsi que si son contenu correspond à ce qui est demandé dans l'application
+  - Possibilité d'exporter une liste de tâches en format .json pour pouvoir l'importer par la suite
+  - Possibilité d'exporter une liste de tâches en format .txt pour pouvoir la consulté directement sur l'ordinateur avec un lecteur de texte
+
 ## [v1.3.0] - 2026-05-20
 ### Ajouté
 - Ajout de fonctionnalité pour l'accessibilité :

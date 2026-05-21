@@ -5,6 +5,7 @@ import { ajouterTache, supprimerTache, terminerTache } from "./scripts/taches";
 import { sauvegarderTaches, listeTaches } from "./scripts/storage";
 import { afficherTaches, titre, setFiltreActif, modeEdition } from "./scripts/ui";
 import type { NiveauPriorite, FiltreTaches } from "./scripts/types";
+import { initialiserImportExport } from "./scripts/importExport";
 // Importation de la version depuis le package.json
 import packageJson from '../package.json';
 
@@ -29,6 +30,9 @@ selectTaches.value = "Toutes";
 
 // On lance l'affichage des tâches au chargement de la page
 afficherTaches();
+
+// On lance la fonctionnalité d'import et d'export de liste de tâches au démarrage
+initialiserImportExport();
 
 // Définition de la fonction pour retirer le message d'erreur sur l'input du titre de tâche
 function retirerErreur () {

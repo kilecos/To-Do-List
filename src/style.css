@@ -38,10 +38,74 @@ main {
   margin: 20px 0;
 }
 
+.count-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#modal-import-export {
+  margin: auto;
+  padding: 0;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+#modal-import-export:open {
+  opacity: 1;
+}
+
+@starting-style {
+  #modal-import-export:open {
+    opacity: 0;
+  }
+}
+
+#modal-import-export::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+#modal-import-export:open::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  #modal-import-export:open::backdrop {
+    opacity: 0;
+  }
+}
+
+.modal-ie-content {
+  background: radial-gradient(circle,rgba(255, 235, 161, 1) 86%, rgba(199, 181, 129, 1) 95%);
+  width: 90vw;
+  max-width: 400px;
+  padding: 30px;
+  text-align: center;
+  border-radius: 15px;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+}
+
+.modal-first-content, .modal-import-content, .modal-export-content {
+  display: none;
+}
+
+.visible {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Personnalisation du compteur de tâches lorsqu'il est présent */
 #compteur-taches {
   font-size: 1.2rem;
-  margin-bottom: 20px;
 }
 
 /* Personnalisation du bouton servant à faire apparaitre le formulaire d'entré de tâches */
@@ -396,6 +460,10 @@ footer {
 
   #compteur-taches {
     font-size: 1rem;
+  }
+
+  #btn-import-export {
+    display: none;
   }
 
   .btn-toggle {
