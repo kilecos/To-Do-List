@@ -91,7 +91,7 @@ function exporterTexte() {
     // On parcours chaque élément de notre tableau listeTaches et retourne un nouveau tableau constitué de chaines de caractères
     // Avec .join("\n") on transforme ce tableau en une seule chaine de caractères avec des sauts de ligne entre chaque tâche
     const contenu = listeTaches.map((tache) => {
-        return `- ${tache.titre} [${tache.priorite}] (${tache.estTerminee? "✔" : ""})`;
+        return `- ${tache.titre}${tache.priorite? ` | [Priorité : ${tache.priorite}]` : ""}${tache.estTerminee? " | ✔" : ""}`;
     }).join("\n");
     const blob = new Blob([contenu], {type: "text/plain"});
     const url = URL.createObjectURL(blob);

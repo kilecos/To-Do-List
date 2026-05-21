@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v1.4.1] - 2026-05-21
+### Modifié
+- Ajustement rendu visuel des tâches dans le fichier .txt issue de la fonction export
+
 ## [v1.4.0] - 2026-05-21
 ### Ajouté
 - Ajout de la fonctionnalité d'importer et d'exporter les listes de tâches sur ordinateur :
