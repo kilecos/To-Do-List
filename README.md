@@ -13,6 +13,8 @@ Réalisée en HTML, CSS et TypeScript.
 - 📝 Edition de tâches (changement de titre ou de niveau de priorité)
 - ✅ Validation et suppresion de chaque tâche individuellement
 - 🪧 Affichage des tâches terminées par rapport au nombre total de tâches
+- 📤 Fonctionnalité d'export d'une liste de tâches en format texte ou JSON
+- 📥 Fonctionnalité d'import d'un fichier JSON contenant une liste de tâches
 - ❌ Réinitialisation complète de la liste de tâche avec fenêtre modale de confirmation avant effacement complet
 - 🗄️ Possibilité de filtrer l'affichage des tâches pour afficher uniquement les tâches en cours, les tâches terminées ou toutes les tâches
 - 🗂️ Classement des tâches en fonction d'abord de leur priorité puis par ordre chronologique de leur ajout
