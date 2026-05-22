@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v1.4.3] - 2026-05-22
+### Modifié
+- Modifications visuelles sur les contenus de la fenêtre modale d'import/export de liste
+
 ## [v1.4.2] - 2026-05-22
 ### Modifié
 - Modifications sur la fonctionnalité d'import/export :

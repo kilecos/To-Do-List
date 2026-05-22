@@ -61,20 +61,26 @@
       <dialog id="modal-import-export">
         <div class="modal-ie-content modal-first-content visible">
           <p class="modal-title">Importer ou Exporter ?</p>
-          <button class="btn-import">Importer une liste</button>
-          <button class="btn-export">Exporter la liste</button>
+          <div class="btn-container">
+            <button class="btn-import">Importer une liste</button>
+            <button class="btn-export">Exporter la liste</button>
+          </div>
           <button class="btn-cancel">Annuler</button>
         </div>
         <div class="modal-ie-content modal-export-content">
           <p class="modal-title">Choix du format de l'export :</p>
-          <button class="btn-json">Format JSON</button>
-          <button class="btn-texte">Format Texte</button>
+          <div class="btn-container">
+            <button class="btn-json">Format JSON</button>
+            <button class="btn-texte">Format Texte</button>
+          </div>
           <button class="btn-back">Retour</button>
         </div>
         <div class="modal-ie-content modal-import-content">
           <p class="modal-title">Choisissez le fichier .json à importer</p>
-          <input id="import-input" type="file" accept=".json">
-          <button class="btn-confirm">Importer</button>
+          <div class="btn-container">
+            <input id="import-input" type="file" accept=".json">
+            <button class="btn-confirm">Importer</button>
+          </div>
           <button class="btn-back">Retour</button>
         </div>
       </dialog>

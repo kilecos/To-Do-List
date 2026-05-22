@@ -101,6 +101,39 @@ main {
 .visible {
   display: flex;
   flex-direction: column;
+  gap: 50px;
+}
+
+.modal-title {
+  font-size: 1.3rem;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn-container button {
+  width: 50%;
+}
+
+.btn-container input {
+  width: 80%;
+  border: 1px solid #8b4513;
+}
+
+.btn-back, .btn-cancel {
+  background-color: #dc3545;
+  width: 40%;
+  margin: 0 auto;
+  transition: background-color 0.2s ease;
+}
+
+.btn-back:hover, .btn-cancel:hover {
+  background-color: #c82333;
 }
 
 /* Personnalisation du compteur de tâches lorsqu'il est présent */
