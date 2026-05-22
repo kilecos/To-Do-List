@@ -1,4 +1,4 @@
-import { afficherTaches } from "./ui";
+import { afficherTaches, titre } from "./ui";
 import { listeTaches, sauvegarderTaches } from "./storage";
 import type { Tache } from "./types";
 
@@ -71,10 +71,14 @@ export function initialiserImportExport() {
 function exporterJSON() {
     // On converti notre tableau listeTaches en chaine de caractères texte au format JSON
     // null, 2 formate avec des indentations
-    const contenu = JSON.stringify(listeTaches, null, 2);
+    const contenu = {
+        titre : titre.textContent,
+        liste : listeTaches
+    };
+    const contenuExport = JSON.stringify(contenu, null, 2);
     // Un Blob est un objet qui représente des données binaires, c'est le format utilisé par le navigateur pour manipuler des fichiers en mémoire.
     // On lui donne le contenu et lui dit de quel type de fichier il s'agit
-    const blob = new Blob([contenu], {type: "application/json"});
+    const blob = new Blob([contenuExport], {type: "application/json"});
     // On crée une URL temporaire qui pointe vers le Blob en mémoire, c'est une adresse fictive que seul le navigateur comprend.
     const url = URL.createObjectURL(blob);
     // On crée un lien invisible pointant vers l'URL temporaire, avec l'attribut download qui dit au navigateur "télécharge ce fichier sous ce nom"
@@ -92,8 +96,9 @@ function exporterTexte() {
     // Avec .join("\n") on transforme ce tableau en une seule chaine de caractères avec des sauts de ligne entre chaque tâche
     const contenu = listeTaches.map((tache) => {
         return `- ${tache.titre}${tache.priorite? ` | [Priorité : ${tache.priorite}]` : ""}${tache.estTerminee? " | ✔" : ""}`;
-    }).join("\n");
-    const blob = new Blob([contenu], {type: "text/plain"});
+    });
+    const contenuExport = `${titre.textContent}\n\n` + contenu.join("\n");
+    const blob = new Blob([contenuExport], {type: "text/plain"});
     const url = URL.createObjectURL(blob);
     const lien = document.createElement("a");
     lien.href = url;
@@ -113,13 +118,13 @@ function importerListe() {
     reader.onload = (e) => {
         try {
             // On transforme le JSON en tableau TypeScript
-            const listeImportee : Tache[] = e.target ? JSON.parse(e.target.result as string) : [];
+            const listeImportee : { titre : string, liste : Tache[]} = e.target ? JSON.parse(e.target.result as string) : [];
             // Sécurité : si le fichier importé n'est pas un tableau, on génère une erreur qui affichera l'alerte à l'utilisateur
-            if (!Array.isArray(listeImportee)) {
+            if (!Array.isArray(listeImportee.liste)) {
                 throw new Error("Format invalide");
             }
             // Sécurité : on contrôle que chaque élément du tableau importé est correctement typé par rapport à ce que l'application demande
-            const estValide = listeImportee.every((item) =>
+            const estValide = listeImportee.liste.every((item) =>
                 typeof item.titre === "string" &&
                 typeof item.estTerminee === "boolean" &&
                 typeof item.id === "string"
@@ -130,8 +135,10 @@ function importerListe() {
             }
             // On vide la liste de tâches actuelle sur l'application
             listeTaches.length = 0;
+            titre.textContent = listeImportee.titre ?? "✔ To-Do List";
+            localStorage.setItem("mon-titre", titre.textContent ?? "✔ To-Do List");
             // On rempli la liste avec le tableau des données importées
-            listeTaches.push(...listeImportee);
+            listeTaches.push(...listeImportee.liste);
             // On sauvegarde cette nouvelle liste
             sauvegarderTaches();
             // On l'affiche sur l'application

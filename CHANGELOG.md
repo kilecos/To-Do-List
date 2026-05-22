@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [v1.4.2] - 2026-05-22
+### Modifié
+- Modifications sur la fonctionnalité d'import/export :
+  - Inclusion du titre dans l'export JSON et texte
+  - Restauration du titre à l'import
+  - Fallback sur le titre par défaut si absent
+
 ## [v1.4.1] - 2026-05-21
 ### Modifié
 - Ajustement rendu visuel des tâches dans le fichier .txt issue de la fonction export
