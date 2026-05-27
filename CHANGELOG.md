@@ -6,6 +6,7 @@
 
 ### Tests
 - Ajout des tests unitaires pour les fonctions de taches.ts
+- Ajout de test unitaire pour storage.ts
 
 ## [v1.4.2] - 2026-05-22
 ### Modifié
