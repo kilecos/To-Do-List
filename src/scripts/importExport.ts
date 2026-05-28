@@ -122,6 +122,26 @@ function exporterTexte() {
     URL.revokeObjectURL(url);
 }
 
+// Définition de la fonction de vérification et validation du fichier reçu lors d'un import
+export function validerDonneesImport(donnees: unknown): boolean {
+    // On vérifie que donnees est bien un objet sinon la fonction retourne false
+	if (typeof donnees !== "object" || donnees === null) return false;
+    // On dit à TypeScript que c'est un objet dont les clés sont des strings avec des valeurs inconnues
+	const obj = donnees as Record<string, unknown>;
+    // Sécurité : si le fichier importé n'est pas un tableau, la fonction retourne false
+	if(!Array.isArray(obj.liste)) return false;
+    // Sécurité : on contrôle que chaque élément du tableau importé est correctement typé par rapport à ce que l'application demande
+	const estValide = obj.liste.every((item) =>
+		typeof item.titre === "string" &&
+		typeof item.estTerminee === "boolean" &&
+		typeof item.id === "string"
+	);
+    // Si ce n'est pas le cas, la fonction retourne false
+	if (!estValide) return false;
+    // Si les données importées passent les vérifications, la fonction retourne true
+	return true;
+}
+
 // Définition de la fonction d'importation d'un fichier JSON contenant une liste de tâches
 function importerListe() {
     // On récupère le fichier sélectionné par l'utilisateur via l'input
@@ -135,19 +155,8 @@ function importerListe() {
         try {
             // On transforme le JSON en tableau TypeScript
             const listeImportee : { titre : string, liste : Tache[]} = e.target ? JSON.parse(e.target.result as string) : [];
-            // Sécurité : si le fichier importé n'est pas un tableau, on génère une erreur qui affichera l'alerte à l'utilisateur
-            if (!Array.isArray(listeImportee.liste)) {
+            if (!validerDonneesImport(listeImportee)) {
                 throw new Error("Format invalide");
-            }
-            // Sécurité : on contrôle que chaque élément du tableau importé est correctement typé par rapport à ce que l'application demande
-            const estValide = listeImportee.liste.every((item) =>
-                typeof item.titre === "string" &&
-                typeof item.estTerminee === "boolean" &&
-                typeof item.id === "string"
-            );
-            // Si ce n'est pas le cas, on génère une erreur qui affichera l'alerte à l'utilisateur
-            if (!estValide) {
-                throw new Error ("Format invalide");
             }
             // On vide la liste de tâches actuelle sur l'application
             listeTaches.length = 0;

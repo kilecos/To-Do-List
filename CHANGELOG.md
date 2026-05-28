@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v1.4.4] - 2026-05-28
+### Modifié
+- Extraction de la vérification et validation des données d'un fichier importé dans une fonction séparée de la fonction d'import
+
 ## [v1.4.3] - 2026-05-27
 ### Modifié
 - Modifications visuelles sur les contenus de la fenêtre modale d'import/export de liste
