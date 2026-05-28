@@ -45,6 +45,7 @@ export function initialiserImportExport() {
     });
     // Affichage du contenu de l'interface d'import
     btnImport.addEventListener("click", () => {
+        importInput.value = "";
         afficherEtat(importModal);
     });
     // Fermeture de la modale par click sur le bouton "Annuler"
@@ -176,6 +177,7 @@ function importerListe() {
             importInput.value = "";
         } catch (erreur) {
             alert("Fichier non valide");
+            importInput.value = "";
         }
     };
     // On lance la lecture du fichier en mode texte

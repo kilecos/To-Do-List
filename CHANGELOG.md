@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v1.4.5] - 2026-05-28
+### Ajouté
+- Ajout vidage de l'input d'import de fichier lors de l'affichage d'une nouvelle fenêtre et après une erreur pour fichier non valide
+
 ## [v1.4.4] - 2026-05-28
 ### Modifié
 - Extraction de la vérification et validation des données d'un fichier importé dans une fonction séparée de la fonction d'import
