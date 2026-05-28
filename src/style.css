@@ -478,7 +478,7 @@ li span {
 footer {
   display: flex;
   justify-content: space-between;
-  margin: 10px auto;
+  margin: 30px auto;
   width: 500px;
   font-size: 0.8rem;
 }
