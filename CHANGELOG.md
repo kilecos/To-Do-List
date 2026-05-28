@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [v1.4.6] - 2026-05-28
+### Ajouté
+- Ajout du défilement fluide lors du scroll sur l'application et retrait de celui-ci si animation réduite par demande de l'utilisateur
+- Ajout de personnalisation CSS pour la scrollbar
+
 ## [v1.4.5] - 2026-05-28
 ### Ajouté
 - Ajout vidage de l'input d'import de fichier lors de l'affichage d'une nouvelle fenêtre et après une erreur pour fichier non valide

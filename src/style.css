@@ -3,6 +3,18 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: rgb(36, 36, 36) transparent;
+}
+
+/* Si l'utilisateur a demandé de réduire les animations, on désactive le scroll-behavior: smooth */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* Personnalisation générale de la page */
 body {
   font-family: "Lugrasimo", cursive;
