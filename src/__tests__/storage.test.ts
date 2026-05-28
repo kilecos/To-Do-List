@@ -1,3 +1,5 @@
+// Fichier du test pour la fonction de sauvegarde d'une liste de tâches sur localStorage
+
 import { listeTaches, sauvegarderTaches } from "../scripts/storage";
 
 beforeEach(() => {

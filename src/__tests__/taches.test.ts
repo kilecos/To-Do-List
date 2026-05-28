@@ -1,3 +1,5 @@
+// Fichier de tests pour les fonctions de gestion de tâches
+
 import { ajouterTache, terminerTache, supprimerTache, editerTache } from "../scripts/taches";
 import { listeTaches } from "../scripts/storage";
 import type { NiveauPriorite } from "../scripts/types";

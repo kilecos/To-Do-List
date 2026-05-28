@@ -1,3 +1,5 @@
+// Fichier de tests pour la fonction de valider des données d'un fichier importé
+
 import { validerDonneesImport } from "../scripts/importExport";
 import type { NiveauPriorite } from "../scripts/types";
 
