@@ -226,6 +226,10 @@ input::placeholder {
   max-width: 70%;
 }
 
+#input-tache {
+  width: 400px;
+}
+
 /* Personnalisation du message d'erreur si pas d'entrée dans l'input de nom de tâche */
 .erreur {
   display: none;
@@ -531,9 +535,25 @@ footer {
   .formulaire {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: normal;
     gap: 10px;
+  }
+
+  .input-conteneur {
+    text-align: center;
+  }
+
+  #input-tache {
+    width: 80%;
+    max-width: 400px;
+  }
+
+  #select-priorite {
+    align-self: center;
+  }
+
+  #btn-ajouter {
+    align-self: center;
   }
 
   input, select {
@@ -545,7 +565,7 @@ footer {
   }
 
   #btn-ajouter {
-    width: 100%;
+    width: 200px;
   }
 
   .msg-erreur {
@@ -577,6 +597,15 @@ footer {
 
   .en-edition input {
     width: auto;
+  }
+
+  .en-edition select {
+    align-self: center;
+  }
+
+  .en-edition button {
+    width: 200px;
+    align-self: center;
   }
 
   select {

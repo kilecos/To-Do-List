@@ -10,6 +10,9 @@
   - Ajustement input du mode édition des éléments de la liste
   - Changement breakpoint de 724px à 1024px pour couvrir aussi les tablettes
   - Modification définition de la largeur de la liste pour format mobile
+  - Ajustement largeur input de titre de tâche du formulaire d'ajout format Desktop et mobile
+  - Ajustement placement des éléments du formulaire d'ajout pour format mobile
+  - Ajustement placement des éléments du mode édition des tâches pour format mobile
 
 ## [v1.4.6] - 2026-05-28
 ### Ajouté
