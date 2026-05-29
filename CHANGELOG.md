@@ -6,6 +6,10 @@
   - Augmentation largeur de la liste sur Desktop
   - Modification sur le placement du bouton pour effacer la liste
   - Ajustement footer par rapport à la nouvelle largeur de la liste
+  - Ajustement des éléments de la liste de tâche
+  - Ajustement input du mode édition des éléments de la liste
+  - Changement breakpoint de 724px à 1024px pour couvrir aussi les tablettes
+  - Modification définition de la largeur de la liste pour format mobile
 
 ## [v1.4.6] - 2026-05-28
 ### Ajouté

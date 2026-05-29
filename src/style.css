@@ -315,7 +315,7 @@ li {
   align-items: center;
   letter-spacing: 0.5px;
   border-left: 10px solid transparent;
-  padding-left: 15px;
+  padding-right: 20px;
 }
 
 /* Personnalisation de la bordure des éléments de la liste en fonction de leur priorité */
@@ -367,6 +367,14 @@ li span {
 .btn-action:hover {
   background-color: transparent;
   transform: scale(1.2);
+}
+
+.en-edition {
+  justify-content: flex-start;
+}
+
+.en-edition input {
+  width: 450px;
 }
 
 /* Personnalisation du bouton ouvrant la modal pour effacer complètement la liste de tâches */
@@ -488,14 +496,14 @@ footer {
 }
 
 /* Définition des règles CSS pour affichage sur un écran de mobile */
-@media (max-width : 724px) {
+@media (max-width : 1024px) {
 
   body {
     padding-top: 20px;
   }
 
   .app-container {
-    max-width: 300px;
+    max-width: 80%;
   }
 
   #list-titre {
@@ -549,15 +557,26 @@ footer {
     font-size: 0.9rem;
   }
 
+  li {
+    gap: 15px;
+  }
+
+  .btn-conteneur {
+    gap: 10px;
+  }
+
+  .btn-action {
+    padding: 0;
+  }
+
   .en-edition {
     flex-direction: column;
     gap: 10px;
     align-items: normal;
   }
 
-  .btn-reset {
-    width: 100%;
-    margin: auto;
+  .en-edition input {
+    width: auto;
   }
 
   select {
@@ -569,7 +588,7 @@ footer {
   }
 
   footer {
-    max-width: 300px;
+    max-width: 80%;
   }
 
 }
