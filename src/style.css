@@ -21,7 +21,7 @@ body {
   font-weight: bold;
   min-height: 100vh;
   background: linear-gradient(304deg,rgba(102, 102, 102, 1) 22%, rgba(219, 219, 219, 1) 70%, rgba(102, 102, 102, 1) 100%);
-  padding-top: 50px;
+  padding-top: 30px;
   margin: 0;
   box-sizing: border-box;
   display: flex;
@@ -39,7 +39,7 @@ main {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 6px 6px 6px rgba(0,0,0,0.7);
-  width: 500px;
+  width: 800px;
 }
 
 /* Personnalisation de la partie contenant le titre et le bouton pour le changer */
@@ -370,11 +370,15 @@ li span {
 }
 
 /* Personnalisation du bouton ouvrant la modal pour effacer complètement la liste de tâches */
+.btn-reset-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .btn-reset {
   background-color: #dc3545;
-  width: 40%;
-  margin-top: 20px;
-  margin-left: 30%;
+  width: 200px;
   padding: 10px 0;
   font-size: 0.9rem;
   font-weight: bold;
@@ -479,7 +483,7 @@ footer {
   display: flex;
   justify-content: space-between;
   margin: 30px auto;
-  width: 500px;
+  width: 800px;
   font-size: 0.8rem;
 }
 
@@ -554,7 +558,6 @@ footer {
   .btn-reset {
     width: 100%;
     margin: auto;
-    margin-top: 20px;
   }
 
   select {

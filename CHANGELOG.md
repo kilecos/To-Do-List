@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [v1.4.7] - 2026-05-29
+### Modifié
+- Modifications visuelles :
+  - Augmentation largeur de la liste sur Desktop
+  - Modification sur le placement du bouton pour effacer la liste
+  - Ajustement footer par rapport à la nouvelle largeur de la liste
+
 ## [v1.4.6] - 2026-05-28
 ### Ajouté
 - Ajout du défilement fluide lors du scroll sur l'application et retrait de celui-ci si animation réduite par demande de l'utilisateur
