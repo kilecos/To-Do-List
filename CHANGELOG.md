@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v1.4.8] - 2026-05-29
+### Ajouté
+- Ajout d'une légende en bas de la liste pour les couleurs de priorité
+
 ## [v1.4.7] - 2026-05-29
 ### Modifié
 - Modifications visuelles :

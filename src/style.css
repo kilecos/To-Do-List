@@ -381,6 +381,39 @@ li span {
   width: 450px;
 }
 
+/* Personnalisation affichage de la légende pour les couleurs de priorité */
+.legend-container {
+  margin-top: 20px;
+  padding-left: 20px;
+  font-size: 0.8rem;
+}
+
+.legend {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.priority-color {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+}
+
+.haute {
+  background-color: #a0522d;
+}
+
+.moyenne {
+  background-color: #cd853f;
+}
+
+.basse {
+  background-color: #8fbc8f;
+}
+
 /* Personnalisation du bouton ouvrant la modal pour effacer complètement la liste de tâches */
 .btn-reset-container {
   display: flex;
