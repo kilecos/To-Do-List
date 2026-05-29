@@ -649,6 +649,10 @@ footer {
     max-width: 300px;
   }
 
+  .legend-container {
+    padding-left: 0;
+  }
+
   footer {
     max-width: 80%;
   }
