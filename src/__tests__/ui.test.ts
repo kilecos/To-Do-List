@@ -78,4 +78,38 @@ describe("afficherTaches", () => {
         expect(premierLi.classList.contains("tache-barree")).toBe(false);
         expect(deuxiemeLi.classList.contains("tache-barree")).toBe(true);
     });
+    it("le titre de la tâche est bien affiché dans un <span>", () => {
+        listeTaches.push({
+            id: "1",
+            titre: "Faire les courses",
+            estTerminee: false,
+            priorite: "Haute"
+        });
+        afficherTaches();
+        const li = listeTachesHtml.querySelector("li") as HTMLLIElement;
+        const span = li.querySelector("span") as HTMLSpanElement;
+        expect(span.textContent).toBe("Faire les courses");
+    });
+    it("les boutons valider, supprimer et éditer s'affiche correctement", () => {
+        listeTaches.push({
+            id: "1",
+            titre: "Faire les courses",
+            estTerminee: false,
+            priorite: "Haute"
+        },{
+            id: "2",
+            titre: "Sortir le chien",
+            estTerminee: true,
+            priorite: "Moyenne"
+        });
+        afficherTaches();
+        const premierLi = listeTachesHtml.querySelectorAll("li")[0];
+        const deuxiemeLi = listeTachesHtml.querySelectorAll("li")[1];
+        expect(premierLi.querySelector(".btn-valider")).not.toBeNull();
+        expect(premierLi.querySelector(".btn-supprimer")).toBeNull();
+        expect(deuxiemeLi.querySelector(".btn-valider")).toBeNull();
+        expect(deuxiemeLi.querySelector(".btn-supprimer")).not.toBeNull();
+        expect(premierLi.querySelector(".btn-editer")).not.toBeNull();
+        expect(deuxiemeLi.querySelector(".btn-editer")).not.toBeNull();
+    });
 });
