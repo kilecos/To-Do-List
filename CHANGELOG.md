@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v1.4.9] - 2026-06-02
+### Modifié
+- Modification rendu visuel input du mode édition de tâche sur mobile
+
 ## [v1.4.8] - 2026-05-29
 ### Ajouté
 - Ajout d'une légende en bas de la liste pour les couleurs de priorité

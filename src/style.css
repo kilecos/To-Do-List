@@ -625,11 +625,11 @@ footer {
   .en-edition {
     flex-direction: column;
     gap: 10px;
-    align-items: normal;
+    align-items: center;
   }
 
   .en-edition input {
-    width: auto;
+    width: 80%;
   }
 
   .en-edition select {
