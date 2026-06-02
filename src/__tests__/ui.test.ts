@@ -1,12 +1,13 @@
 import { listeTaches } from "../scripts/storage";
-import { type NiveauPriorite } from "../scripts/types";
-import { afficherTaches } from "../scripts/ui";
+import { type FiltreTaches, type NiveauPriorite } from "../scripts/types";
+import { afficherTaches, setFiltreActif } from "../scripts/ui";
 
 const listeTachesHtml = document.querySelector("#liste-taches-html") as HTMLUListElement;
 
 beforeEach(() => {
     listeTaches.length = 0;
     listeTachesHtml.innerHTML = "";
+    setFiltreActif("Toutes" as FiltreTaches);
 });
 
 describe("afficherTaches", () => {
@@ -111,5 +112,61 @@ describe("afficherTaches", () => {
         expect(deuxiemeLi.querySelector(".btn-supprimer")).not.toBeNull();
         expect(premierLi.querySelector(".btn-editer")).not.toBeNull();
         expect(deuxiemeLi.querySelector(".btn-editer")).not.toBeNull();
+    });
+});
+
+describe("setFiltreActif", () => {
+    it("n'affiche que les tâches en cours si le filtre En Cours est sélectionné", () => {
+        listeTaches.push({
+            id: "1",
+            titre: "Faire les courses",
+            estTerminee: false,
+            priorite: "Haute"
+        },{
+            id: "2",
+            titre: "Sortir le chien",
+            estTerminee: true,
+            priorite: "Moyenne"
+        });
+        setFiltreActif("En Cours" as FiltreTaches);
+        afficherTaches();
+        const liAffiches = listeTachesHtml.querySelectorAll("li");
+        expect(liAffiches.length).toBe(1);
+        expect(liAffiches[0].dataset.id).toBe("1");
+    });
+    it("n'affiche que les tâches terminées si le filtre Terminées est sélectionné", () => {
+        listeTaches.push({
+            id: "1",
+            titre: "Faire les courses",
+            estTerminee: false,
+            priorite: "Haute"
+        },{
+            id: "2",
+            titre: "Sortir le chien",
+            estTerminee: true,
+            priorite: "Moyenne"
+        });
+        setFiltreActif("Terminées" as FiltreTaches);
+        afficherTaches();
+        const liAffiches = listeTachesHtml.querySelectorAll("li");
+        expect(liAffiches.length).toBe(1);
+        expect(liAffiches[0].dataset.id).toBe("2");
+    });
+    it("afficher toutes les tâches si le filtre Toutes est sélectionné", () => {
+        listeTaches.push({
+            id: "1",
+            titre: "Faire les courses",
+            estTerminee: false,
+            priorite: "Haute"
+        },{
+            id: "2",
+            titre: "Sortir le chien",
+            estTerminee: true,
+            priorite: "Moyenne"
+        });
+        setFiltreActif("Toutes" as FiltreTaches);
+        afficherTaches();
+        const liAffiches = listeTachesHtml.querySelectorAll("li");
+        expect(liAffiches.length).toBe(2);
     });
 });
