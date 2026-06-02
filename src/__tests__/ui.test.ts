@@ -1,13 +1,15 @@
 import { listeTaches } from "../scripts/storage";
 import { type FiltreTaches, type NiveauPriorite } from "../scripts/types";
-import { afficherTaches, setFiltreActif } from "../scripts/ui";
+import { afficherTaches, setFiltreActif, miseAJourCompteur } from "../scripts/ui";
 
 const listeTachesHtml = document.querySelector("#liste-taches-html") as HTMLUListElement;
+const compteur = document.querySelector("#compteur-taches") as HTMLElement;
 
 beforeEach(() => {
     listeTaches.length = 0;
     listeTachesHtml.innerHTML = "";
     setFiltreActif("Toutes" as FiltreTaches);
+    compteur.textContent = "";
 });
 
 describe("afficherTaches", () => {
@@ -168,5 +170,42 @@ describe("setFiltreActif", () => {
         afficherTaches();
         const liAffiches = listeTachesHtml.querySelectorAll("li");
         expect(liAffiches.length).toBe(2);
+    });
+});
+
+describe("miseAJourCompteur", () => {
+    it("s'il n'y a aucune tâche, le compteur ne s'affiche pas", () => {
+        miseAJourCompteur()
+        expect(compteur.textContent).toBe("");
+    });
+    it("le compteur affiche le bon nombre de tâches", () => {
+        listeTaches.push({
+            id: "1",
+            titre: "Faire les courses",
+            estTerminee: false,
+            priorite: "Haute"
+        },{
+            id: "2",
+            titre: "Sortir le chien",
+            estTerminee: false,
+            priorite: "Moyenne"
+        });
+        miseAJourCompteur();
+        expect(compteur.textContent).toBe("Tâches terminées : 0 / 2");
+    });
+    it("le compteur affiche le bon nombre de tâches terminées", () => {
+        listeTaches.push({
+            id: "1",
+            titre: "Faire les courses",
+            estTerminee: false,
+            priorite: "Haute"
+        },{
+            id: "2",
+            titre: "Sortir le chien",
+            estTerminee: true,
+            priorite: "Moyenne"
+        });
+        miseAJourCompteur();
+        expect(compteur.textContent).toBe("Tâches terminées : 1 / 2");
     });
 });
