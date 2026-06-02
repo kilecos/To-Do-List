@@ -4,6 +4,9 @@
 ### Modifié
 - Modification rendu visuel input du mode édition de tâche sur mobile
 
+### Tests
+- Ajout de tests unitaires pour la fonction d'affichage des tâches de ui.ts
+
 ## [v1.4.8] - 2026-05-29
 ### Ajouté
 - Ajout d'une légende en bas de la liste pour les couleurs de priorité

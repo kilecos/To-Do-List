@@ -1,0 +1,1 @@
+document.body.innerHTML = `<p id="compteur-taches" aria-live="polite"></p> <ul id="liste-taches-html"></ul>`;
