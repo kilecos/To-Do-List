@@ -3,6 +3,7 @@
 ## [v1.4.10] - 2026-06-08
 ### Modifié
 - Uniformisation apparence bouton d'ajout de nouvelle tâche par rapport aux autres boutons
+- Modification aspect curseur souris en le passant en default sur le html
 
 ## [v1.4.9] - 2026-06-02
 ### Modifié

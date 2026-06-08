@@ -4,6 +4,7 @@
 }
 
 html {
+  cursor: default;
   scroll-behavior: smooth;
   scrollbar-color: rgb(36, 36, 36) transparent;
 }
