@@ -228,12 +228,20 @@ describe("modeEdition", () => {
         expect(input.value).toBe("Faire les courses");
     });
     it("un select a bien été créé", () => {
-       const tache : Tache = { id: "1", titre: "Faire les courses", estTerminee: false, priorite: "Haute"};
+        const tache : Tache = { id: "1", titre: "Faire les courses", estTerminee: false, priorite: "Haute"};
         const li = document.createElement("li");
         listeTachesHtml.appendChild(li);
         modeEdition(tache, li);
         const select = li.querySelector("select") as HTMLSelectElement;
         expect(select).not.toBeNull();
         expect(select.value).toBe("Haute"); 
+    });
+    it("le bouton Editer a bien été créé", () => {
+        const tache : Tache = { id: "1", titre: "Faire les courses", estTerminee: false, priorite: "Haute"};
+        const li = document.createElement("li");
+        listeTachesHtml.appendChild(li);
+        modeEdition(tache, li);
+        const editer = li.querySelector("button") as HTMLButtonElement;
+        expect(editer).not.toBeNull();
     });
 });
