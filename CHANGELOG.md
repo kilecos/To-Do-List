@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v1.4.10] - 2026-06-08
+### Modifié
+- Uniformisation apparence bouton d'ajout de nouvelle tâche par rapport aux autres boutons
+
 ## [v1.4.9] - 2026-06-02
 ### Modifié
 - Modification rendu visuel input du mode édition de tâche sur mobile

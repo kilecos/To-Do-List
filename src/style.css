@@ -291,11 +291,6 @@ button:hover {
   background-color: #52290b;
 }
 
-/* Personnalisation spécifique au bouton de validation du formulaire d'entré de tâches */
-#btn-ajouter {
-  border-radius: 10px;
-}
-
 /* Personnalisation du sélecteur servant à filtrer les tâches de la liste à afficher */
 .filtre-conteneur {
   display: flex;
