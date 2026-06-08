@@ -1,6 +1,6 @@
 import { listeTaches } from "../scripts/storage";
-import { type FiltreTaches, type NiveauPriorite } from "../scripts/types";
-import { afficherTaches, setFiltreActif, miseAJourCompteur } from "../scripts/ui";
+import { type FiltreTaches, type NiveauPriorite, type Tache } from "../scripts/types";
+import { afficherTaches, setFiltreActif, miseAJourCompteur, modeEdition } from "../scripts/ui";
 
 const listeTachesHtml = document.querySelector("#liste-taches-html") as HTMLUListElement;
 const compteur = document.querySelector("#compteur-taches") as HTMLElement;
@@ -207,5 +207,15 @@ describe("miseAJourCompteur", () => {
         });
         miseAJourCompteur();
         expect(compteur.textContent).toBe("Tâches terminées : 1 / 2");
+    });
+});
+
+describe("modeEdition", () => {
+    it("la classe en-edition est bien ajoutée au li", () => {
+        const tache : Tache = { id: "1", titre: "Faire les courses", estTerminee: false, priorite: "Haute"};
+        const li = document.createElement("li");
+        listeTachesHtml.appendChild(li);
+        modeEdition(tache, li);
+        expect(li.classList.contains("en-edition")).toBe(true);
     });
 });
