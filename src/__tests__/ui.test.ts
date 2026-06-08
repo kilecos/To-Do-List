@@ -175,7 +175,7 @@ describe("setFiltreActif", () => {
 
 describe("miseAJourCompteur", () => {
     it("s'il n'y a aucune tâche, le compteur ne s'affiche pas", () => {
-        miseAJourCompteur()
+        miseAJourCompteur();
         expect(compteur.textContent).toBe("");
     });
     it("le compteur affiche le bon nombre de tâches", () => {
